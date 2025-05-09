@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "SmartNote",
+    "version": "1.0",
+    "description": "Veb-saytlardan muhim ma'lumotlarni yig'ish va tashkil qilish uchun vosita.",
+    "permissions": [
+      "storage",
+      "contextMenus",
+      "activeTab",
+      "notifications"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["notes.html"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "icons": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
